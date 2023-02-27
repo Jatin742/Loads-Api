@@ -13,9 +13,13 @@ import java.util.List;
 
 @RestController
 public class LoadController {
-    @Autowired
+    
     private LoadService loadService;
     
+    LoadController(LoadService loadService){
+        this.loadService=loadService;
+    }
+
     @PostMapping("/load")
     public String addload(@RequestBody Load load){
         return loadService.addload(load);
